@@ -1,0 +1,44 @@
+#-----------------------
+# SETUP
+#-----------------------
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+
+#-----------------------
+# STARTING A REPO
+#-----------------------
+git init                  # start new repo
+git clone URL             # copy remote repo
+
+#-----------------------
+# STAGING & COMMITTING
+#-----------------------
+git status                # check repo state
+git add file.txt          # stage file
+git add .                 # stage everything
+git commit -m "message"   # commit staged changes
+
+#-----------------------
+# BRANCHING
+#-----------------------
+git branch                # list branches
+git checkout -b newbranch # create + switch
+git checkout main         # switch back
+git merge newbranch       # merge branch into current
+
+#-----------------------
+# REMOTE
+#-----------------------
+git remote -v             # list remotes
+git push origin main      # push commits
+git pull origin main      # fetch + merge
+git fetch                 # fetch only
+
+#-----------------------
+# FIXING
+#-----------------------
+git log --oneline         # short commit history
+git diff                  # see unstaged changes
+git reset file.txt        # unstage a file
+git checkout -- file.txt  # discard changes
+

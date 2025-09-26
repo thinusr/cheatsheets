@@ -1,0 +1,69 @@
+#-----------------------
+# FILE CREATION
+#-----------------------
+touch file{1..5}.txt note{1..3}.md script{1..3}.py temp~ draft.temp
+mkdir texts scripts notes others logs data
+
+#-----------------------
+# LISTING FILES
+#-----------------------
+ls                     # simple list
+ls *.txt               # list only .txt files
+ls -l                  # detailed list
+tree                   # tree view
+
+#-----------------------
+# MOVING FILES
+#-----------------------
+mv *.txt texts/
+mv *.md notes/
+mv *.py scripts/
+mv *.log logs/
+mv *.csv data/
+mv *~ others/
+
+#-----------------------
+# RENAMING FILES WITH LOOP
+#-----------------------
+idx=1
+for file in *.txt; do
+    mv "$file" "2025_09_24_$((idx++)).txt"
+done
+
+#-----------------------
+# DELETING FILES
+#-----------------------
+rm temp~                # delete one file
+rm *.bak                # delete multiple files
+rm -rf tmp_folder/      # delete folder recursively
+
+#-----------------------
+# WILDCARDS & PATTERNS
+#-----------------------
+*        # all files
+?.txt    # any single character followed by .txt
+file{1..5}.txt   # brace expansion
+*~       # backup/temp files
+
+#-----------------------
+# CHAINING COMMANDS
+#-----------------------
+command1 && command2       # run command2 only if command1 succeeds
+command1 ; command2        # run command2 regardless of command1
+command1 \
+&& command2 \
+&& command3              # backslash splits long commands across lines
+
+#-----------------------
+# NETWORK COMMANDS
+#-----------------------
+ip a                      # show all network interfaces and IPs
+ip link                   # show interface status
+ip link set eth0 up        # bring interface up
+ip link set eth0 down      # bring interface down
+ip addr add 192.168.1.10/24 dev eth0   # assign IP
+ping 8.8.8.8               # test connection
+curl ifconfig.me           # show external IP
+sudo apt install net-tools # (Debian/Ubuntu) to restore 'ifconfig'
+ifconfig                   # (legacy) show network info if net-tools installed
+

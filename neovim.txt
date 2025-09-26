@@ -1,0 +1,57 @@
+#-----------------------
+# BASICS
+#-----------------------
+:h keyword         # open help for keyword
+:q                 # quit
+:w                 # save
+:wq                # save & quit
+:q!                # quit without saving
+
+#-----------------------
+# MODES
+#-----------------------
+i   # insert mode
+Esc # back to normal mode
+v   # visual mode
+:   # command mode
+
+#-----------------------
+# MOVEMENT
+#-----------------------
+h j k l        # left, down, up, right
+w              # next word
+b              # back word
+0              # start of line
+$              # end of line
+gg             # start of file
+G              # end of file
+
+#-----------------------
+# EDITING
+#-----------------------
+x              # delete character
+dw             # delete word
+dd             # delete line
+u              # undo
+Ctrl+r         # redo
+yy             # yank (copy) line
+p              # paste after cursor
+P              # paste before cursor
+
+#-----------------------
+# SEARCH & REPLACE
+#-----------------------
+/word          # search for 'word'
+n              # next match
+N              # previous match
+:%s/old/new/g  # replace all 'old' with 'new'
+
+#-----------------------
+# WINDOWS & TABS
+#-----------------------
+:split file    # horizontal split
+:vsplit file   # vertical split
+Ctrl+w w       # switch window
+:tabnew file   # new tab
+:tabn / :tabp  # next / prev tab
+
