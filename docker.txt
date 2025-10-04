@@ -1,32 +1,33 @@
 #-----------------------
-# DOCKER CHEATSHEET
+# DOCKER LAB CHEATSHEET
 #-----------------------
 
 #-----------------------
 # IMAGES
 #-----------------------
-docker pull <image>          # download image from Docker Hub
-docker images               # list local images
-docker rmi <image>          # remove image
+docker pull <image>                  # download image from Docker Hub
+docker images                        # list local images
+docker rmi <image>                   # remove image
 
 #-----------------------
 # CONTAINERS
 #-----------------------
-docker run -it <image>      # run container interactively
-docker ps                   # list running containers
-docker ps -a                # list all containers
-docker stop <container>     # stop running container
-docker rm <container>       # remove container
+docker run -it <image>               # run container interactively
+docker run -it --rm <image>          # run disposable container (auto-deletes on exit)
+docker run -it -v ~/projects:/lab <image>  # run container with host folder mounted
+docker ps                             # list running containers
+docker ps -a                          # list all containers
+docker stop <container>               # stop running container
+docker rm <container>                 # remove container
 
 #-----------------------
 # DOCKERFILE
 #-----------------------
-# Dockerfile instructions
-FROM <image>                # base image
-RUN <command>               # execute command in image build
-COPY <src> <dest>           # copy files into image
-WORKDIR <path>              # set working directory
-CMD ["executable"]          # default command
+FROM <image>                          # base image
+RUN <command>                         # execute command during build
+COPY <src> <dest>                     # copy files into image
+WORKDIR <path>                        # set working directory
+CMD ["executable"]                    # default command
 
 #-----------------------
 # VOLUMES
@@ -56,5 +57,22 @@ docker exec -it <container> /bin/bash   # get shell inside container
 docker system prune                      # remove unused data
 docker container prune                   # remove stopped containers
 docker image prune                       # remove dangling images
-docker volume prune                      # remove unused volumes
+docker volume prune                       # remove unused volumes
+
+#-----------------------
+# PYTHON IN DOCKER
+#-----------------------
+python3 script.py                        # run Python script
+pip install <package>                    # install Python library
+python3 -m venv env                      # create virtual environment
+source env/bin/activate                  # activate virtual environment
+
+#-----------------------
+# QUICK TIPS
+#-----------------------
+# Use 'exit' to leave a disposable container (--rm)
+# Use 'docker commit <container_id> <new_image>' to save changes
+# Mount host folders with -v to keep code persistent
+# Alias example: alias docker-lab='docker run -it --rm -v ~/projects:/lab docker-lab'
+# Then just run: docker-lab to start your Python lab
 
