@@ -1,0 +1,60 @@
+#-----------------------
+# DOCKER CHEATSHEET
+#-----------------------
+
+#-----------------------
+# IMAGES
+#-----------------------
+docker pull <image>          # download image from Docker Hub
+docker images               # list local images
+docker rmi <image>          # remove image
+
+#-----------------------
+# CONTAINERS
+#-----------------------
+docker run -it <image>      # run container interactively
+docker ps                   # list running containers
+docker ps -a                # list all containers
+docker stop <container>     # stop running container
+docker rm <container>       # remove container
+
+#-----------------------
+# DOCKERFILE
+#-----------------------
+# Dockerfile instructions
+FROM <image>                # base image
+RUN <command>               # execute command in image build
+COPY <src> <dest>           # copy files into image
+WORKDIR <path>              # set working directory
+CMD ["executable"]          # default command
+
+#-----------------------
+# VOLUMES
+#-----------------------
+docker volume create <name>             # create volume
+docker run -v <vol>:<path> <image>     # mount volume
+docker volume ls                        # list volumes
+docker volume rm <name>                 # remove volume
+
+#-----------------------
+# NETWORKS
+#-----------------------
+docker network create <name>            # create network
+docker network ls                        # list networks
+docker network inspect <name>            # show network details
+
+#-----------------------
+# LOGS & MONITORING
+#-----------------------
+docker logs <container>                  # view logs
+docker stats                             # live container metrics
+docker exec -it <container> /bin/bash   # get shell inside container
+
+#-----------------------
+# CLEANUP
+#-----------------------
+docker system prune                      # remove unused data
+docker container prune                   # remove stopped containers
+docker image prune                       # remove dangling images
+docker volume prune                      # remove unused volumes
+
