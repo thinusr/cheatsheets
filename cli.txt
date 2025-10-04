@@ -67,3 +67,33 @@ curl ifconfig.me           # show external IP
 sudo apt install net-tools # (Debian/Ubuntu) to restore 'ifconfig'
 ifconfig                   # (legacy) show network info if net-tools installed
 
+#-----------------------
+# BLUETOOTH COMMANDS
+#-----------------------
+# Start bluetoothctl (interactive CLI tool)
+bluetoothctl
+
+# Within bluetoothctl:
+power on                   # turn on the Bluetooth adapter
+power off                  # turn off the adapter
+agent on                    # enable pairing agent
+scan on                     # start scanning for nearby devices
+scan off                    # stop scanning
+devices                     # list all known devices
+paired-devices              # list paired devices
+pair <MAC_ADDRESS>          # pair with a device
+connect <MAC_ADDRESS>       # connect to a paired device
+disconnect <MAC_ADDRESS>    # disconnect a device
+trust <MAC_ADDRESS>         # mark device as trusted for automatic reconnection
+remove <MAC_ADDRESS>        # remove/unpair a device
+quit                        # exit bluetoothctl
+
+# Quick helper commands outside bluetoothctl:
+systemctl status bluetooth       # check Bluetooth service status
+systemctl start bluetooth        # start Bluetooth service
+systemctl stop bluetooth         # stop Bluetooth service
+systemctl enable bluetooth       # enable Bluetooth service at boot
+systemctl disable bluetooth      # disable Bluetooth service at boot
+rfkill list                      # list all blocked/unblocked devices
+rfkill unblock bluetooth         # unblock Bluetooth if soft-blocked
+
