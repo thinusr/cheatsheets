@@ -38,6 +38,24 @@ rm *.bak                # delete multiple files
 rm -rf tmp_folder/      # delete folder recursively
 
 #-----------------------
+# SYMLINKS
+#-----------------------
+ln -s target linkname          # create a symbolic link
+ln -s /path/to/file shortcut   # link file to shortcut
+ln -s /path/to/dir symlinkdir  # link directory
+
+ls -l                          # shows -> for symlinks
+readlink linkname              # show what a symlink points to
+readlink -f linkname           # show absolute path target
+unlink linkname                # delete a symlink (not the target)
+rm linkname                    # also removes the symlink safely
+
+# Common uses:
+ln -s /mnt/storage/photos ~/Photos   # link storage/photos to home
+ln -s /usr/share/fonts ~/.fonts      # make fonts visible in home
+ln -s /etc/nginx/sites-available/mysite /etc/nginx/sites-enabled/
+
+#-----------------------
 # WILDCARDS & PATTERNS
 #-----------------------
 *        # all files
