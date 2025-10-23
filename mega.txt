@@ -1,0 +1,66 @@
+# MEGAcmd Cheatsheet
+
+## Login / Account
+
+mega-login <email> <password>          # Log in to your MEGA account
+mega-logout                             # Log out of your MEGA account
+mega-whoami                             # Show current logged-in account
+
+## Listing / Navigation
+
+mega-ls                                  # List files/folders in current MEGA folder
+mega-ls /Root/FolderName                 # List contents of a specific folder
+mega-pwd                                 # Show current MEGA directory
+mega-cd /Root/FolderName                 # Change directory in MEGA
+mega-tree                                # Show full folder tree
+
+## Upload / Download
+
+mega-put localfile.txt /Root/FolderName  # Upload a file
+mega-put /local/folder /Root/FolderName  # Upload folder recursively
+mega-get /Root/FolderName localfolder/   # Download file/folder
+mega-sync /local/folder /Root/FolderName # Start syncing local folder with MEGA
+mega-sync --remove /local/folder          # Stop syncing folder
+
+## File Management
+
+mega-mkdir /Root/NewFolder               # Create folder
+mega-rm /Root/Folder/File.txt            # Remove file/folder
+mega-mv /Root/Folder/OldName /Root/Folder/NewName  # Move/rename
+mega-info /Root/Folder                   # Show info
+
+## Sharing / Links
+
+mega-export /Root/Folder                 # Generate public link
+mega-export --no-pass /Root/Folder       # Generate link without password
+mega-import <MEGA-link> /Root/TargetFolder  # Import from public link
+
+## Account / Quota
+
+mega-du                                  # Show storage usage
+mega-rep                                 # Show number of files/folders
+mega-cap                                 # Show quota used vs total
+
+## Background / Sync Management
+
+mega-sync                                # List active syncs
+mega-sync --remove /local/folder         # Stop syncing a folder
+mega-whoami                              # Check active account
+
+## Multi-Account Management (Optional)
+
+mega-login [user2@example.com](mailto:user2@example.com) password2 --session session2  # Add another account session
+mega-switch session1                     # Switch to session1
+mega-switch session2                     # Switch to session2
+
+## Tips for i3 Users
+
+* Run mega-sync in tmux/screen to keep it in background
+* Alias frequently used commands:
+  alias megals='mega-ls'
+  alias megaget='mega-get'
+  alias megaput='mega-put'
+  alias megasync='mega-sync'
+
+# End of Cheatsheet
+
